@@ -8,11 +8,27 @@
 
 """
 from time import strptime
+from datetime import datetime, timedelta
 
 def print_days():
-    today = input("today: ")
-    yesterday = input("yesterday: ")
-    thirtydaysago = input("30 days ago: ")
+    while True:
+        command = input(". для выхода.\nвыбери сегодня, вчера, или Х дней назад: ")
+        if command == '.':
+            print("________________________________________")
+            break
+        elif len(command.split()) > 1:
+            try:
+                print(f"{command}: {datetime.now() - timedelta(int(command.split()[0]))}")
+            except TypeError:
+                print(f"неправильный формат комманды /'{command}/'")
+        elif command == 'сегодня':
+            print(f"{command}: {datetime.now()}")
+        elif command == 'вчера':
+            print(f"{command}: {datetime.now() - timedelta(1)}")
+        else:
+            print(f"неправильный формат /'{command}/'")
+
+
 
 
 def str_2_datetime(date_string):
