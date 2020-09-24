@@ -17,14 +17,14 @@ def main():
     В ней надо заменить pass на ваш код
     """
 
-    referat_file = open("referat.txt", "rt")
-    referat = referat_file.read()
-    words = referat.split()
-    words_count = len(words)
-    print(f'Количество слов = {words_count}')
-    referat = referat.replace('.', '!')
-    result_file = open('referat2.txt', 'wt')
-    result_file.write(referat)
+    with open("referat.txt", "rt") as referat_file:
+        referat = referat_file.read()
+        words = referat.split()
+        words_count = len(words)
+        print(f'Количество слов = {words_count}')
+        referat = referat.replace('.', '!')
+        result_file = open('referat2.txt', 'wt')
+        result_file.write(referat)
     
 
 
